@@ -8,16 +8,21 @@
     <!-- React UMD builds -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <!-- Amazon Cognito Identity SDK (for optional hosted UI / token handling) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/amazon-cognito-identity-js/6.3.1/amazon-cognito-identity.min.js" integrity="sha512-qQmd1/Nb0tlq5CvrTQjItNA5NJjaWgUgYWyra8wqZ2jdGCr3EAsjGgKAvy1utRl5JEqzxvhMs+Nzf8MRgTRb9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    
+    <!-- AWS SDK (includes Cognito) - UPDATED VERSION -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1691.0.min.js"></script>
+    
+    <!-- Amazon Cognito Identity SDK - UPDATED URL -->
+    <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@6.3.1/dist/amazon-cognito-identity.min.js"></script>
+    
     <!-- App config (copy config.sample.js to config.js and edit) -->
     <script src="config.js"></script>
     <script src="auth.js"></script>
   </head>
   <body>
     <div id="root"></div>
-
+    
     <script src="app.js"></script>
   </body>
 </html>
-
