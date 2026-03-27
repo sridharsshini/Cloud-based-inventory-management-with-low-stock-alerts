@@ -10,19 +10,34 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
     
-    <!-- AWS SDK (includes Cognito) - UPDATED VERSION -->
+    <!-- AWS SDK -->
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1691.0.min.js"></script>
-    
-    <!-- Amazon Cognito Identity SDK - UPDATED URL -->
     <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@6.3.1/dist/amazon-cognito-identity.min.js"></script>
     
-    <!-- App config (copy config.sample.js to config.js and edit) -->
-    <script src="config.js"></script>
+    <!-- App config - using environment variables injected by Amplify -->
+    <script>
+      window.APP_CONFIG = {
+        API_BASE_URL: 'https://1hd328jggf.execute-api.ap-south-1.amazonaws.com/prod',
+        COGNITO_USER_POOL_ID: 'ap-south-1_xJLejbRgV',
+        COGNITO_CLIENT_ID: '2f1ptjqpmjaqt9iqtjjeq5cbt7',
+        COGNITO_REGION: 'ap-south-1',
+        COGNITO_DOMAIN: 'inventory-app.auth.ap-south-1.amazoncognito.com'
+      };
+      console.log('APP_CONFIG loaded');
+    </script>
     <script src="auth.js"></script>
   </head>
   <body>
     <div id="root"></div>
     
-    <script src="app.js"></script>
+    <script>
+      // Initialize auth when page loads
+      if (window.Auth) {
+        window.Auth.init();
+        console.log('Auth initialized. Login URL:', window.Auth.getLoginUrl());
+      }
+    </script>
+    
+    <script type="text/babel" src="app.js"></script>
   </body>
 </html>
