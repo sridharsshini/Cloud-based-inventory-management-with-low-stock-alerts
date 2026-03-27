@@ -31,11 +31,11 @@
     const res = await fetch(url, { ...options, headers });
     const text = await res.text();
     let data;
-    try {
+      try {
       data = text ? JSON.parse(text) : null;
-    } catch {
+      } catch (e) {
       data = text;
-    }
+      }
     if (!res.ok) {
       const msg = data && data.message ? data.message : `Request failed with ${res.status}`;
       const error = new Error(msg);
