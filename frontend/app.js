@@ -560,7 +560,7 @@
                               React.createElement(
                                 'span',
                                 { className: 'stock-chip-label' },
-                                p.currentStock ?? 0
+                                p.currentStock || 0
                               ),
                               React.createElement(
                                 'span',
@@ -575,7 +575,7 @@
                             React.createElement(
                               'span',
                               { className: 'tag' },
-                              p.reorderThreshold ?? '—'
+                              p.reorderThreshold || '—'
                             )
                           ),
                           React.createElement(
